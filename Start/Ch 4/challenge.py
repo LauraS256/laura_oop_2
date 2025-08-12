@@ -19,20 +19,22 @@ class Asset():
 
     def __ge__(self, value):
         return self.price >= value.price
-    
+
     def __le__(self, value):
         return self.price <= value.price
 
     def __lt__(self, value):
         return self.price < value.price
-    
+
     def __gt__(self, value):
         return self.price >= value.price
+
 
 @dataclass(eq=False)
 class Stock(Asset):
     ticker: str
     company: str
+
 
 @dataclass(eq=False)
 class Bond(Asset):
@@ -43,10 +45,10 @@ class Bond(Asset):
 
 # ~~~~~~~~~ TEST CODE ~~~~~~~~~
 stocks = [
-    Stock("MSFT", 342.0, "Microsoft Corp"),
-    Stock("GOOG", 135.0, "Google Inc"),
-    Stock("META", 275.0, "Meta Platforms Inc"),
-    Stock("AMZN", 120.0, "Amazon Inc")
+    Stock(1.0, "MSFT", "Microsoft Corp"),
+    Stock(2.0, "GOOG", "Google Inc"),
+    Stock(3.0, "META", "Meta Platforms Inc"),
+    Stock(4.0, "AMZN", "Amazon Inc")
 ]
 
 bonds = [
@@ -57,15 +59,15 @@ bonds = [
 ]
 
 try:
-   ast = Asset(100.0)
+    ast = Asset(100.0)
 except:
-   print("Can't instantiate Asset!")
+    print("Can't instantiate Asset!")
 
 stocks.sort()
 bonds.sort()
 
 for stock in stocks:
-   print(stock)
+    print(stock)
 print("-----------")
 for bond in bonds:
-   print(bond)
+    print(bond)
